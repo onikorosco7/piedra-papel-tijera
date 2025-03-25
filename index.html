@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-con">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Piedra, Papel o Tijera</h1>
+        <p>Elige tu opción:</p>
+        <div class="buttons">
+            <button onclick="jugar('piedra')" class="btn">🪨 Piedra</button>
+            <button onclick="jugar('papel')" class="btn">📜 Papel</button>
+            <button onclick="jugar('tijera')" class="btn">✂️ Tijera</button>
+        </div>
+        <p id="resultado"></p>
+        <div id="confetti-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
