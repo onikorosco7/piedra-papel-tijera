@@ -16,6 +16,17 @@ body {
   min-height: 100vh;
 }
 
+@keyframes latir {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.latido {
+    display: inline-block;
+    animation: latir 1.5s infinite ease-in-out;
+}
+
 /* Hero */
 .hero {
   background: linear-gradient(90deg, #1e293b, #0f172a);
