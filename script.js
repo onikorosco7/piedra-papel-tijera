@@ -1,37 +1,47 @@
-/* script.js */
-function jugar(eleccionUsuario) {
-    const opciones = ['piedra', 'papel', 'tijera'];
-    const eleccionMaquina = opciones[Math.floor(Math.random() * 3)];
-    let resultado = '';
+const resultado = document.getElementById('resultado');
+const botones = document.querySelectorAll('.btn');
 
-    if (eleccionUsuario === eleccionMaquina) {
-        resultado = '¡Empate! Ambos eligieron ' + eleccionUsuario;
-    } else if (
-        (eleccionUsuario === 'piedra' && eleccionMaquina === 'tijera') ||
-        (eleccionUsuario === 'papel' && eleccionMaquina === 'piedra') ||
-        (eleccionUsuario === 'tijera' && eleccionMaquina === 'papel')
-    ) {
-        resultado = '¡Ganaste! ' + eleccionUsuario + ' vence a ' + eleccionMaquina;
-        lanzarConfetti();
-    } else {
-        resultado = 'Perdiste 😢 ' + eleccionMaquina + ' vence a ' + eleccionUsuario;
-    }
-    
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.innerText = resultado;
-    resultadoElemento.style.opacity = "1";
+botones.forEach(boton => {
+  boton.addEventListener('click', () => {
+    jugar(boton.getAttribute('data-choice'));
+  });
+});
+
+function jugar(eleccionJugador) {
+  const opciones = ['piedra', 'papel', 'tijera'];
+  const eleccionComputadora = opciones[Math.floor(Math.random() * 3)];
+
+  let mensaje = '';
+
+  if (eleccionJugador === eleccionComputadora) {
+    mensaje = `🤝 ¡Empate! Ambos eligieron ${eleccionJugador}.`;
+  } else if (
+    (eleccionJugador === 'piedra' && eleccionComputadora === 'tijera') ||
+    (eleccionJugador === 'papel' && eleccionComputadora === 'piedra') ||
+    (eleccionJugador === 'tijera' && eleccionComputadora === 'papel')
+  ) {
+    mensaje = `🎉 ¡Ganaste! Elegiste ${eleccionJugador} y la computadora eligió ${eleccionComputadora}.`;
+    lanzarConfetti();
+  } else {
+    mensaje = `💥 ¡Perdiste! Elegiste ${eleccionJugador} y la computadora eligió ${eleccionComputadora}.`;
+  }
+
+  resultado.textContent = mensaje;
 }
 
 function lanzarConfetti() {
-    const container = document.getElementById('confetti-container');
-    container.innerHTML = '';
-    for (let i = 0; i < 20; i++) {
-        let confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + "%";
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = Math.random() * 1.5 + 0.5 + 's';
-        container.appendChild(confetti);
-    }
-    setTimeout(() => { container.innerHTML = ''; }, 2000);
+  const confettiContainer = document.getElementById('confetti-container');
+  confettiContainer.innerHTML = '';
+
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement('div');
+    confetti.classList.add('confetti');
+    confetti.style.left = Math.random() * 100 + 'vw';
+    confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+    confettiContainer.appendChild(confetti);
+  }
+
+  setTimeout(() => {
+    confettiContainer.innerHTML = '';
+  }, 3000);
 }
