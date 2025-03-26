@@ -114,3 +114,18 @@ body {
   height: 100%;
   pointer-events: none;
 }
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: hsl(calc(360 * var(--hue)), 100%, 50%);
+  top: -10px;
+  animation: caer linear forwards;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+  }
+}
