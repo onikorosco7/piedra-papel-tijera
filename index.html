@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piedra, Papel o Tijera</title>
-    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-con">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/6729598.png">
+  <title>Piedra, Papel o Tijera</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Piedra, Papel o Tijera</h1>
-        <p>Elige tu opción:</p>
-        <div class="buttons">
-            <button onclick="jugar('piedra')" class="btn">🪨 Piedra</button>
-            <button onclick="jugar('papel')" class="btn">📜 Papel</button>
-            <button onclick="jugar('tijera')" class="btn">✂️ Tijera</button>
-        </div>
-        <p id="resultado"></p>
-        <div id="confetti-container"></div>
+  <header>
+    <h1>🔥Piedra, Papel o Tijera PRO 🔥</h1>
+    <p>¡Desafía a un amigo o juega contra la máquina!</p>
+  </header>
+
+  <div class="game-container">
+    <div class="buttons">
+      <button class="btn" onclick="jugar('piedra')">✊ Piedra</button>
+      <button class="btn" onclick="jugar('papel')">✋ Papel</button>
+      <button class="btn" onclick="jugar('tijera')">✌️ Tijera</button>
     </div>
-    <script src="script.js"></script>
+    <div class="result">
+      <p id="resultado">Elige una opción</p>
+      <p id="contador">Victorias: 0 | Derrotas: 0 | Empates: 0</p>
+      <button id="reiniciar" onclick="reiniciar()">Reiniciar</button>
+      <button id="modo" onclick="cambiarModo()">Modo: 1 Jugador</button>
+      <button id="dark" onclick="toggleDarkMode()">🌙</button>
+    </div>
+    <section class="historial">
+      <h2>Historial de partidas</h2>
+      <ul id="lista-historial"></ul>
+    </section>
+    <canvas id="confetti"></canvas>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - Onik Orosco Game Studio</p>
+  </footer>
+
+  <audio id="sonidoVictoria" src="audio/ganador.mp3"></audio>
+  <audio id="sonidoDerrota" src="audio/perdedor.mp3"></audio>
+  <audio id="sonidoEmpate" src="audio/empate.mp3"></audio>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
