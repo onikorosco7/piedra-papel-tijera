@@ -12,6 +12,13 @@ Este es un proyecto académico desarrollado para practicar lógica de programaci
 
 ## 📄 Licencia
 
+## Autor
+Desarrollado por:
+1. Onik Orosco
+2. Fabricio Tello
+3. 
+4. 
+5. 
 © 2025 Proyecto Académico – Todos los derechos reservados. Desarrollado con fines educativos por estudiantes.
 
 ## 🌐 Vista previa
