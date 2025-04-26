@@ -1,37 +1,68 @@
 /* script.js */
 function jugar(eleccionUsuario) {
     const opciones = ['piedra', 'papel', 'tijera'];
-    const eleccionMaquina = opciones[Math.floor(Math.random() * 3)];
-    let resultado = '';
+    const eleccionMaquina = obtenerEleccionMaquina(opciones);
+    const resultado = calcularResultado(eleccionUsuario, eleccionMaquina);
 
-    if (eleccionUsuario === eleccionMaquina) {
-        resultado = '¡Empate! Ambos eligieron ' + eleccionUsuario;
-    } else if (
-        (eleccionUsuario === 'piedra' && eleccionMaquina === 'tijera') ||
-        (eleccionUsuario === 'papel' && eleccionMaquina === 'piedra') ||
-        (eleccionUsuario === 'tijera' && eleccionMaquina === 'papel')
-    ) {
-        resultado = '¡Ganaste! ' + eleccionUsuario + ' vence a ' + eleccionMaquina;
+    mostrarResultado(resultado);
+    if (resultado.ganador === 'usuario') {
         lanzarConfetti();
-    } else {
-        resultado = 'Perdiste 😢 ' + eleccionMaquina + ' vence a ' + eleccionUsuario;
     }
-    
-    let resultadoElemento = document.getElementById('resultado');
-    resultadoElemento.innerText = resultado;
+}
+
+function obtenerEleccionMaquina(opciones) {
+    const indiceAleatorio = Math.floor(Math.random() * opciones.length);
+    return opciones[indiceAleatorio];
+}
+
+function calcularResultado(eleccionUsuario, eleccionMaquina) {
+    if (eleccionUsuario === eleccionMaquina) {
+        return {
+            mensaje: `¡Empate! Ambos eligieron ${eleccionUsuario}`,
+            ganador: 'empate'
+        };
+    }
+
+    const reglasDeGanador = {
+        'piedra': 'tijera',
+        'papel': 'piedra',
+        'tijera': 'papel'
+    };
+
+    if (reglasDeGanador[eleccionUsuario] === eleccionMaquina) {
+        return {
+            mensaje: `¡Ganaste! ${eleccionUsuario} vence a ${eleccionMaquina}`,
+            ganador: 'usuario'
+        };
+    } else {
+        return {
+            mensaje: `Perdiste 😢 ${eleccionMaquina} vence a ${eleccionUsuario}`,
+            ganador: 'maquina'
+        };
+    }
+}
+
+function mostrarResultado(resultado) {
+    const resultadoElemento = document.getElementById('resultado');
+    resultadoElemento.innerText = resultado.mensaje;
     resultadoElemento.style.opacity = "1";
 }
 
 function lanzarConfetti() {
     const container = document.getElementById('confetti-container');
     container.innerHTML = '';
-    for (let i = 0; i < 20; i++) {
-        let confetti = document.createElement('div');
+    
+    for (let i = 0; i < 30; i++) { // Aumenté la cantidad de confeti
+        const confetti = document.createElement('div');
         confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + "%";
+        confetti.style.left = `${Math.random() * 100}%`;
         confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-        confetti.style.animationDuration = Math.random() * 1.5 + 0.5 + 's';
+        confetti.style.animationDuration = `${Math.random() * 1.5 + 0.5}s`; // Variación de tiempo
+        confetti.style.transform = `rotate(${Math.random() * 360}deg)`; // Añadí rotación aleatoria
+
         container.appendChild(confetti);
     }
+
+    // Limpia el confeti después de 2 segundos
     setTimeout(() => { container.innerHTML = ''; }, 2000);
 }

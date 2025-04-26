@@ -20,7 +20,7 @@ Este es un pequeño proyecto en HTML, CSS y JavaScript que simula el juego clás
 ## Autor
 Desarrollado por:
 1. Onik Orosco
-2. 
+2. Fabricio Tello
 3. 
 4. 
 5. 

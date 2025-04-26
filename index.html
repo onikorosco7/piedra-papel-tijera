@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juega al clásico Piedra, Papel o Tijera contra la máquina y demuestra tu habilidad.">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Piedra, Papel o Tijera</title>
-    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-con">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos externa -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
-        <h1>Piedra, Papel o Tijera</h1>
-        <p>Elige tu opción:</p>
-        <div class="buttons">
-            <button onclick="jugar('piedra')" class="btn">🪨 Piedra</button>
-            <button onclick="jugar('papel')" class="btn">📜 Papel</button>
-            <button onclick="jugar('tijera')" class="btn">✂️ Tijera</button>
-        </div>
-        <p id="resultado"></p>
-        <div id="confetti-container"></div>
+        <header>
+            <h1>Piedra, Papel o Tijera</h1>
+            <p>Elige tu opción y compite contra la máquina.</p>
+        </header>
+
+        <main>
+            <section id="elecciones">
+                <h2>Elige tu movimiento</h2>
+                <div class="buttons">
+                    <button onclick="jugar('piedra')" class="btn" aria-label="Elegir Piedra">
+                        🪨 Piedra
+                    </button>
+                    <button onclick="jugar('papel')" class="btn" aria-label="Elegir Papel">
+                        📜 Papel
+                    </button>
+                    <button onclick="jugar('tijera')" class="btn" aria-label="Elegir Tijera">
+                        ✂️ Tijera
+                    </button>
+                </div>
+            </section>
+
+            <section id="resultado" aria-live="polite">
+                <h2>Resultado</h2>
+                <p id="resultado-texto">Haz tu elección para ver el resultado aquí.</p>
+            </section>
+        </main>
+
+        <div id="confetti-container" aria-hidden="true"></div>
+
+        <footer>
+            <p>Juego creado por <a href="https://tu-sitio-web.com" target="_blank" rel="noopener noreferrer">Tu Nombre</a>.</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
