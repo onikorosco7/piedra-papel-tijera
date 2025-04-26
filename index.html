@@ -52,8 +52,52 @@
         <footer>
             <p>Juego creado por <a href="https://tu-sitio-web.com" target="_blank" rel="noopener noreferrer">Tu Nombre</a>.</p>
         </footer>
+=======
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔥 Piedra, Papel o Tijera | El Desafío Definitivo 🔥</title>
+  <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">🔥 Piedra, Papel o Tijera 🔥</h1>
+      <p class="hero-subtitle" class="latido">¿Listo para desafiar a la máquina?</p>
     </div>
-    <script src="script.js"></script>
+  </header>
+
+  <main class="main-content">
+
+    <section class="instructions">
+      <h2>¿Cómo jugar?</h2>
+      <p>Selecciona una opción y reta a la computadora. ¿Podrás ganar?</p>
+    </section>
+
+    <section class="game">
+      <div class="buttons">
+        <button class="btn" data-choice="piedra">🪨 Piedra</button>
+        <button class="btn" data-choice="papel">📜 Papel</button>
+        <button class="btn" data-choice="tijera">✂️ Tijera</button>
+      </div>
+
+      <div class="result-box">
+        <h3>Resultado:</h3>
+        <p id="resultado">Esperando tu jugada...</p>
+      </div>
+
+      <div id="confetti-container"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Proyecto Académico – Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
